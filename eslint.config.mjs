@@ -1,7 +1,16 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
+module.exports = {
+  parser: "@typescript-eslint/parser", // Define o parser para TypeScript
+  plugins: ["@typescript-eslint"],
+  extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  rules: {
+    "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }], // Ignora variáveis começadas com "_"
+  },
+};
+
 import { FlatCompat } from "@eslint/eslintrc";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
